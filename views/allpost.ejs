@@ -1,0 +1,24 @@
+<%- include('header.ejs') %>
+
+
+<% for(i=0; i< posts.length; i++) {%>
+    <% let post=posts[i] %>
+    <div class="row justify-content-center align-items-center">
+
+         <div class="col-4">
+            <div class="card d-flex ">
+                <div class="card-body">
+                    <div class="card-title">
+                       <h3><%= post.title %></h3> 
+                    </div>
+                    <p class="blockquote"><%= post.description  %></p>
+                    <hr>
+                    <p class="lead"><%= post.post %></p>
+                  article by <small><%= post.author %></small>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/what-if/create" class="btn btn-info">Back</a>
+<% } %>

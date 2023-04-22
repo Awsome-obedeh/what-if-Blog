@@ -1,0 +1,55 @@
+<%- include('header.ejs') %>
+    <!-- Main Content-->
+    <main class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <p class="text-uppercase fw-bold " >EDIT YOUR BLOG POST</p>
+                    <div class="my-5">
+                    
+                        <form id="contactForm" method="POST" action="/what-if/admin/edit/<%= post._id %>">  
+                            <input type="hidden" name="_method" value="PUT">
+                           
+                           
+                          
+                            <div class="form-floating">
+                                <input required class="form-control" id="name" type="text" placeholder="Enter your name..." name="title" value="<%=post.title%>" data-sb-validations="required" />
+                                <label for="name">Title Of Post</label>
+                                <div class="invalid-feedback" data-sb-feedback="title:required">Title is required.</div>
+                            </div>
+
+                            <div class="form-floating">
+                                <input required class="form-control"  type="text" name="description" value="<%= post.description %>"/>
+                                <label for="email">Description</label>
+                                <div class="invalid-feedback" data-sb-feedback="description:required">Description is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="description:email">Description</div>
+                            </div>
+
+                            <div class="form-floating">
+                                <input required class="form-control" id="phone" type="text" name="author" placeholder="name of author" data-sb-validations="required" value="<%= post.author %>"/>
+                                <label for="phone">Author Name</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">An author name is required.</div>
+                            </div>
+
+                            <div class="form-floating">
+                                <textarea required class="form-control" id="message" placeholder="Enter your message here..." name="post" style="height: 12rem" data-sb-validations="required"><%= post.post %></textarea>
+                                <label for="message">Blog Post</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required"> Blog Post is required.</div>
+                            </div>
+                        
+                            <br />
+                           <input type="hidden" value="<%= moment().format("MM-D-YYYY") %>" name="updatedAt">
+                            <!-- Submit Button-->
+                            <button class="btn btn-primary text-uppercase d-inline" id="submitButton" type="submit">Create</button>
+                            
+                            <!-- <a href="/what-if/a" class="btn btn-danger d-inline pl-5">cancel</a> -->
+                        </form>
+                        <a  href="/what-if/admin/allpost"class="btn btn-outline-primary fixed-bottom-right rounded"> back </a>
+                        
+                    </div>
+                </div>
+                <p>.</p>
+            </div>
+        </div>
+    </main>
+<%- include('../footer.ejs') %>
