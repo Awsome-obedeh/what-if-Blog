@@ -87,7 +87,7 @@ router.post('/new', async(req,res)=>{
 
 // @ GET what-if/admin/create
 // create blog post
-router.get('/create', (req,res)=>{
+router.get('/create', authenticated,(req,res)=>{
     res.render('admin/create');
 })
 
