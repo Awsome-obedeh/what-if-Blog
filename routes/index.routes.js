@@ -6,7 +6,7 @@ const {truncate}=require('./../controllers/helpers.controllers.js');
 
 
 router.get('/', async(req,res)=>{
-    const posts=await blogPost.find();
+    const posts=await blogPost.find().sort({createdAt:'desc'});
     console.log(posts)
     
     res.render('index',{posts,moment,truncate})
